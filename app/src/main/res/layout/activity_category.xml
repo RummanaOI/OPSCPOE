@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".CategoryActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CategoryActivity"/>
+
+    <TextView
+        android:id="@+id/txtCategoryHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/category_heading"
+        android:textColor="@color/dark_brown"
+        android:textSize="30sp"
+        android:padding="5dp"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/btnAddCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_toEndOf="@id/txtCategoryHeading"
+        android:backgroundTint="@color/light_brown"
+        android:textColor="@color/dark_brown_text"
+        android:gravity="right"
+        android:padding="10dp"
+        android:text="@string/add_category" />
+
+    <Button
+        android:id="@+id/btnCategoryToTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@id/btnAddCategory"
+        android:textColor="@color/dark_brown_text"
+        android:backgroundTint="@color/light_brown"
+        android:padding="10dp"
+        android:text="@string/tasks_heading" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btnAddCategory"
+        android:contentDescription="@string/category_heading">
+
+        <LinearLayout
+            android:id="@+id/llCategoryList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Dynamically add category items here -->
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

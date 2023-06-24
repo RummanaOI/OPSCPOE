@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".CreateTaskActivity">
+
+    <TextView
+        android:id="@+id/txtTaskHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/add_task"
+        android:textColor="@color/dark_brown"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+
+
+    <Button
+        android:id="@+id/btnAddTaskCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/light_brown"
+        android:layout_toRightOf="@id/btnAddTask"
+        android:padding="10dp"
+        android:text="@string/cancel_button"
+        android:textColor="@color/dark_brown" />
+
+
+    <EditText
+        android:id="@+id/edtAddTaskName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/txtTaskHeading"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_shape"
+        android:backgroundTint="@color/light_brown"
+        android:hint="@string/task_name_hint"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColor="@color/dark_brown_text" />
+
+    <EditText
+        android:id="@+id/edtAddTaskDescription"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/edtAddTaskName"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_shape"
+        android:backgroundTint="@color/light_brown"
+        android:hint="@string/task_description_hint"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColor="@color/dark_brown_text" />
+
+
+    <EditText
+        android:id="@+id/edtAddTaskStartTime"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/edtAddTaskDescription"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_shape"
+        android:backgroundTint="@color/light_brown"
+        android:hint="@string/task_start_time_hint"
+        android:inputType="text|time"
+        android:padding="10dp"
+        android:textColor="@color/dark_brown_text" />
+
+
+    <EditText
+        android:id="@+id/edtAddTaskEndTime"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/edtAddTaskStartTime"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_shape"
+        android:backgroundTint="@color/light_brown"
+        android:hint="@string/task_end_time_hint"
+        android:inputType="text|time"
+        android:padding="10dp"
+        android:textColor="@color/dark_brown_text" />
+
+
+    <Button
+
+        android:layout_below="@id/edtAddTaskEndTime"
+        android:id="@+id/btnAddTask"
+        android:contentDescription="@string/add_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/light_brown"
+        android:padding="10dp"
+        android:text="@string/add_task"
+        android:textColor="@color/dark_brown" />
+
+
+</RelativeLayout>

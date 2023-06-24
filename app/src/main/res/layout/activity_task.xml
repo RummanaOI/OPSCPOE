@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:duplicateParentState="false"
+    android:padding="16dp"
+    tools:context=".TaskActivity">
+
+
+    <TextView
+        android:id="@+id/txtTaskHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:padding="5dp"
+        android:text="@string/tasks_heading"
+        android:textColor="@color/dark_brown"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnAddTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_toEndOf="@id/txtTaskHeading"
+        android:backgroundTint="@color/light_brown"
+        android:textColor="@color/dark_brown_text"
+        android:padding="10dp"
+        android:text="@string/add_task" />
+
+    <Button
+        android:id="@+id/btnTasksToCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@id/btnAddTask"
+        android:textColor="@color/dark_brown_text"
+        android:backgroundTint="@color/light_brown"
+        android:padding="10dp"
+        android:text="@string/category_heading" />
+
+    <TextView
+        android:id="@+id/txtTasksDate"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/txtTaskHeading"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/select_date"
+        android:textColor="@color/dark_brown_text"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnTaskSelectDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_toEndOf="@id/txtTasksDate"
+        android:textColor="@color/dark_brown_text"
+        android:backgroundTint="@color/light_brown"
+        android:padding="10dp"
+        android:text="Jan 01 2020"
+        android:onClick="openDatePicker"/>
+
+    <LinearLayout
+        android:id="@+id/taskContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnTaskSelectDate"
+        android:orientation="vertical"
+        android:paddingTop="16dp">
+
+    </LinearLayout>
+
+
+</RelativeLayout>

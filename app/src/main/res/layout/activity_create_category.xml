@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?><!-- create_category_activity.xml -->
+<!-- create_category_activity.xml -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateCategoryActivity">
+
+    <TextView
+        android:id="@+id/txtAddCategoryHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/add_category"
+        android:textColor="@color/dark_brown"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnAddCategoryCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_toEndOf="@id/txtAddCategoryHeading"
+        android:backgroundTint="@color/light_brown"
+        android:padding="10dp"
+        android:text="@string/cancel_button"
+        android:textColor="@color/dark_brown" />
+
+    <EditText
+        android:id="@+id/edtAddCategoryName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/txtAddCategoryHeading"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_shape"
+        android:backgroundTint="@color/light_brown"
+        android:hint="@string/category_name_hint"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColor="@color/dark_brown_text" />
+
+    <EditText
+        android:id="@+id/edtAddCategoryDescription"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/edtAddCategoryName"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_shape"
+        android:backgroundTint="@color/light_brown"
+        android:hint="@string/category_description_hint"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColor="@color/dark_brown_text" />
+
+    <LinearLayout
+        android:id="@+id/llAddCategoryColorPicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtAddCategoryDescription"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="@string/colour"
+            android:textColor="@color/dark_brown"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/AddCategoryColorSpinner"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:spinnerMode="dialog"
+            android:background="@drawable/color_blob"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@string/colour"/>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAddCategorySaveCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llAddCategoryColorPicker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/light_brown"
+        android:padding="10dp"
+        android:text="@string/add_category"
+        android:textColor="@color/dark_brown" />
+
+</RelativeLayout>
+
