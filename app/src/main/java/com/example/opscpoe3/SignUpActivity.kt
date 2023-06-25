@@ -10,12 +10,15 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class SignUpActivity : AppCompatActivity() {
-    private lateinit var fullNameEditText: EditText
-    private lateinit var emailEditText: EditText
-    private lateinit var usernameEditText: EditText
-    private lateinit var passwordEditText: EditText
-    private lateinit var minGoalEditText: EditText
-    private lateinit var maxGoalEditText: EditText
+    private lateinit var edtFullName: EditText
+    private lateinit var edtEmail: EditText
+    private lateinit var edtUsername: EditText
+    private lateinit var edtPassword: EditText
+    private lateinit var edtMinGoal: EditText
+    private lateinit var edtMaxGoal: EditText
+    private lateinit var btnSignUp: Button
+    private lateinit var btnLogin: Button
+
 
     //Adapted from: TutorialsPoint Kotlin Arrays
     private val users: ArrayList<Users> = ArrayList()
@@ -25,27 +28,26 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up)
 
         // Initialize views
-        fullNameEditText = findViewById(R.id.edtSignUpFullNames)
-        emailEditText = findViewById(R.id.edtSignUpEmail)
-        usernameEditText = findViewById(R.id.edtSignUpUsername)
-        passwordEditText = findViewById(R.id.edtSignUpPassword)
-        minGoalEditText = findViewById(R.id.edtSignUpMinGoal)
-        maxGoalEditText = findViewById(R.id.edtSignUpMaxGoal)
+        edtFullName = findViewById(R.id.edtSignUpFullNames)
+        edtEmail = findViewById(R.id.edtSignUpEmail)
+        edtUsername = findViewById(R.id.edtSignUpUsername)
+        edtPassword = findViewById(R.id.edtSignUpPassword)
+        edtMinGoal = findViewById(R.id.edtSignUpMinGoal)
+        edtMaxGoal = findViewById(R.id.edtSignUpMaxGoal)
+        btnSignUp = findViewById(R.id.btnSignUp)
+        btnLogin = findViewById(R.id.btnSignUpLogin)
 
-        val signUpButton = findViewById<Button>(R.id.btnSignUp)
-        val loginButton = findViewById<Button>(R.id.btnSignUpLogin)
-
-        signUpButton.setOnClickListener { signUpUser() }
-        loginButton.setOnClickListener { redirectToMainActivity() }
+        btnSignUp.setOnClickListener { signUpUser() }
+        btnLogin.setOnClickListener { redirectToMainActivity() }
     }
 
     private fun signUpUser() {
-        val fullName = fullNameEditText.text.toString()
-        val email = emailEditText.text.toString()
-        val username = usernameEditText.text.toString()
-        val password = passwordEditText.text.toString()
-        val minGoal = minGoalEditText.text.toString()
-        val maxGoal = maxGoalEditText.text.toString()
+        val fullName = edtFullName.text.toString()
+        val email = edtEmail.text.toString()
+        val username = edtUsername.text.toString()
+        val password = edtPassword.text.toString()
+        val minGoal = edtMinGoal.text.toString()
+        val maxGoal = edtMaxGoal.text.toString()
 
         // Validate user data
         if (isValidRegistration(fullName, email, username, password, minGoal, maxGoal)) {
@@ -58,12 +60,12 @@ class SignUpActivity : AppCompatActivity() {
             Toast.makeText(this, "User created successfully", Toast.LENGTH_SHORT).show()
 
             // Clear input fields
-            fullNameEditText.text.clear()
-            emailEditText.text.clear()
-            usernameEditText.text.clear()
-            passwordEditText.text.clear()
-            minGoalEditText.text.clear()
-            maxGoalEditText.text.clear()
+            edtFullName.text.clear()
+            edtEmail.text.clear()
+            edtUsername.text.clear()
+            edtPassword.text.clear()
+            edtMinGoal.text.clear()
+            edtMaxGoal.text.clear()
         } else {
             Toast.makeText(this, "Invalid user data", Toast.LENGTH_SHORT).show()
         }

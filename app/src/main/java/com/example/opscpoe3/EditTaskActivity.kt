@@ -1,12 +1,14 @@
 package com.example.opscpoe3
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.content.Intent
-import android.view.LayoutInflater
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Spinner
 
-class CreateTaskActivity : AppCompatActivity() {
+class EditTaskActivity : AppCompatActivity() {
 
     private lateinit var edtTaskName: EditText
     private lateinit var edtDescription: EditText
@@ -14,21 +16,21 @@ class CreateTaskActivity : AppCompatActivity() {
     private lateinit var edtEndTime: EditText
     private lateinit var spnCategory : Spinner
     private lateinit var btnAddTask: Button
-    private lateinit var btnCancel :Button
+    private lateinit var btnCancel : Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_create_task)
+        setContentView(R.layout.activity_edit_task)
 
         // Initialize views
-        edtTaskName = findViewById(R.id.edtAddTaskName)
-        edtDescription = findViewById(R.id.edtAddTaskDescription)
-        edtStartTime = findViewById(R.id.edtAddTaskStartTime)
-        edtEndTime = findViewById(R.id.edtAddTaskEndTime)
-        btnAddTask = findViewById(R.id.btnAddTask)
-        btnCancel = findViewById(R.id.btnAddTaskCancel)
-        spnCategory = findViewById(R.id.spnAddTaskCategory)
+        edtTaskName = findViewById(R.id.edtEditTaskName)
+        edtDescription = findViewById(R.id.edtEditTaskDescription)
+        edtStartTime = findViewById(R.id.edtEditTaskStartTime)
+        edtEndTime = findViewById(R.id.edtEditTaskEndTime)
+        btnAddTask = findViewById(R.id.btnEditTask)
+        btnCancel = findViewById(R.id.btnEditTaskCancel)
+        spnCategory = findViewById(R.id.spnEditTaskCategory)
 
         //Populate spinner with categories
         val categories = arrayOf("Category 1", "Category 2", "Category 3") // replace with your categories
@@ -50,15 +52,13 @@ class CreateTaskActivity : AppCompatActivity() {
         }
 
         // Add click listener to the "Tasks" button in order to navigate to tasks page
-        val btnCancel: Button = findViewById(R.id.btnAddTaskCancel)
         btnCancel.setOnClickListener {
             navigateToTasks()
         }
     }
+
     private fun navigateToTasks() {
         val intent = Intent(this, TaskActivity::class.java)
         startActivity(intent)
     }
 }
-
-

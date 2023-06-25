@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,53 +6,53 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".CreateTaskActivity">
+    tools:context=".EditTaskActivity">
 
     <TextView
-        android:id="@+id/txtAddTaskHeading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="@string/add_task"
-        android:textColor="@color/dark_brown"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
-
-
-    <Button
-        android:id="@+id/btnAddTaskCancel"
+        android:id="@+id/txtEditTaskHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/light_brown"
-        android:layout_toRightOf="@id/btnAddTask"
-        android:padding="10dp"
-        android:text="@string/cancel_button"
-        android:textColor="@color/dark_brown" />
+        android:text="@string/tasks_heading"
+        android:textColor="@color/dark_brown"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 
-    <TextView
-        android:id="@+id/txtAddLabelTaskName"
+    <Button
+        android:id="@+id/btnEditTaskCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txtAddTaskHeading"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_toEndOf="@id/btnEditTask"
+        android:backgroundTint="@color/light_brown"
+        android:padding="10dp"
+        android:text="@string/cancel_button"
+        android:textColor="@color/dark_brown"/>
+
+    <TextView
+        android:id="@+id/txtEditLabelTaskName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtEditTaskHeading"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:labelFor="@+id/edtAddTaskName"
+        android:labelFor="@+id/edtEditTaskName"
         android:text="@string/task_name_hint"
         android:textColor="@color/dark_brown_text"
         android:textSize="14sp" />
 
     <EditText
-        android:id="@+id/edtAddTaskName"
+        android:id="@+id/edtEditTaskName"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/txtAddLabelTaskName"
+        android:layout_below="@id/txtEditLabelTaskName"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
@@ -64,23 +63,23 @@
         android:textColor="@color/dark_brown_text" />
 
     <TextView
-        android:id="@+id/txtAddLabelTaskDescription"
+        android:id="@+id/txtEditLabelTaskDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edtAddTaskName"
+        android:layout_below="@id/edtEditTaskName"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
+        android:labelFor="@+id/edtEditTaskDescription"
         android:layout_marginEnd="10dp"
-        android:labelFor="@+id/edtAddTaskDescription"
         android:text="@string/task_description_hint"
         android:textColor="@color/dark_brown_text"
         android:textSize="14sp" />
 
     <EditText
-        android:id="@+id/edtAddTaskDescription"
+        android:id="@+id/edtEditTaskDescription"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/txtAddLabelTaskDescription"
+        android:layout_below="@id/txtEditLabelTaskDescription"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
@@ -91,24 +90,24 @@
         android:textColor="@color/dark_brown_text" />
 
     <TextView
-        android:id="@+id/txtAddLabelTaskStartTime"
+        android:id="@+id/txtEditLabelTaskStartTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edtAddTaskDescription"
+        android:layout_below="@id/edtEditTaskDescription"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
+        android:labelFor="@+id/edtEditTaskStartTime"
         android:layout_marginEnd="10dp"
-        android:labelFor="@+id/edtAddTaskStartTime"
         android:text="@string/task_start_time_hint"
         android:textColor="@color/dark_brown_text"
         android:textSize="14sp" />
 
 
     <EditText
-        android:id="@+id/edtAddTaskStartTime"
+        android:id="@+id/edtEditTaskStartTime"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/txtAddLabelTaskStartTime"
+        android:layout_below="@id/txtEditLabelTaskStartTime"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
@@ -119,23 +118,23 @@
         android:textColor="@color/dark_brown_text" />
 
     <TextView
-        android:id="@+id/txtAddLabelTaskEndTime"
+        android:id="@+id/txtEditLabelTaskEndTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edtAddTaskStartTime"
+        android:layout_below="@id/edtEditTaskStartTime"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:labelFor="@+id/edtAddTaskEndTime"
+        android:labelFor="@+id/edtEditTaskEndTime"
         android:text="@string/task_end_time_hint"
         android:textColor="@color/dark_brown_text"
         android:textSize="14sp" />
 
     <EditText
-        android:id="@+id/edtAddTaskEndTime"
+        android:id="@+id/edtEditTaskEndTime"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/txtAddLabelTaskEndTime"
+        android:layout_below="@id/txtEditLabelTaskEndTime"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
@@ -147,23 +146,23 @@
 
 
     <TextView
-        android:id="@+id/txtAddLabelTaskCategory"
+        android:id="@+id/txtEditLabelTaskCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edtAddTaskEndTime"
+        android:layout_below="@id/edtEditTaskEndTime"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:text="@string/category"
-        android:labelFor="@+id/spnAddTaskCategory"
+        android:labelFor="@+id/spnEditTaskCategory"
         android:textColor="@color/dark_brown_text"
         android:textSize="14sp" />
 
     <Spinner
-        android:id="@+id/spnAddTaskCategory"
+        android:id="@+id/spnEditTaskCategory"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/txtAddLabelTaskCategory"
+        android:layout_below="@id/txtEditLabelTaskCategory"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
@@ -173,12 +172,13 @@
         android:contentDescription="@string/select_category"/>
 
     <Button
-        android:id="@+id/btnAddTask"
+        android:id="@+id/btnEditTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/spnAddTaskCategory"
+        android:layout_below="@id/spnEditTaskCategory"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
+        android:layout_margin="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
@@ -186,10 +186,11 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/light_brown"
-        android:contentDescription="@string/add_task"
+        android:contentDescription="@string/update_task"
         android:padding="10dp"
-        android:text="@string/add_task"
+        android:text="@string/update_task"
         android:textColor="@color/dark_brown" />
+
 
 
 </RelativeLayout>
