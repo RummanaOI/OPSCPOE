@@ -48,4 +48,9 @@
     <string name="task_start_time_hint">Task start time</string>
     <string name="task_end_time_hint">Task end time</string>
     <string name="select_date">Select date</string>
+    <!-- Settings -->
+    <string name="settings_heading">Settings</string>
+    <string name="settings_notifications">Allow notifications?</string>
+    <string name="settings_notifications_explained">When checked you will receive notifications from NoTimeWasted about your upcoming tasks as well as reminders to log tasks</string>
+    <string name="settings_explained">Click on the fields below to edit your information. Remember to save it as well using the button at the bottom of the page.</string>
 </resources>
