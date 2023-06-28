@@ -7,7 +7,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 
-class settings : AppCompatActivity() {
+class SettingsActivity : AppCompatActivity() {
 
     private lateinit var edtFullName: EditText
     private lateinit var edtEmail: EditText

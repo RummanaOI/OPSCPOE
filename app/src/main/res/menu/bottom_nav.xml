@@ -1,13 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:title="Home"
-        android:id="@+id/home"
-        android:icon="@drawable/baseline_home_24"/>
-    <item android:title="Category"
-        android:id="@+id/category"
-        android:icon="@drawable/baseline_category_24"/>
-    <item android:title="Task"
-        android:id="@+id/task"
-        android:icon="@drawable/baseline_format_list_bulleted_24"/>
+    <item
+        android:id="@+id/nav_tasks"
+        android:title="Tasks"/>
+    <item
+        android:id="@+id/nav_categories"
+        android:title="Categories"/>
+    <item
+        android:id="@+id/nav_statistics"
+        android:title="Statistics"/>
+    <item
+        android:id="@+id/nav_rewards"
+        android:title="Rewards"/>
+    <item
+        android:id="@+id/nav_settings"
+        android:title="Settings" />
 </menu>

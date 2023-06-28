@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.DatePicker
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.Date
 
 class TaskActivity : AppCompatActivity() {
@@ -39,6 +40,45 @@ class TaskActivity : AppCompatActivity() {
             val intent = Intent(this, CreateTaskActivity::class.java)
             startActivity(intent)
         }
+
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_tasks -> {
+                    // Navigate to Tasks
+                    val intent = Intent(this, TaskActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_categories -> {
+                    // Navigate to Categories
+                    val intent = Intent(this, CategoryActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_statistics -> {
+                    // Navigate to Statistics
+                    val intent = Intent(this, StatisticsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_rewards -> {
+                    // Navigate to Rewards
+                    val intent = Intent(this, RewardsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_settings -> {
+                    // Navigate to Settings
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
+
     }
     //(Code with Cal, 2020)
     private fun getTodaysDate(): String {
