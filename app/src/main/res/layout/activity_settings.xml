@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".SettingsActivity">
 
     <TextView
@@ -15,221 +17,242 @@
         android:text="@string/settings_heading"
         android:textColor="@color/dark_brown"
         android:textSize="30sp"
-        android:padding="10dp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/txtSettingsExplained"
-        android:layout_width="480dp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/txtSettingsHeading">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtSettingsExplained"
+                android:layout_width="480dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="13dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/settings_explained"
+                android:textColor="@color/dark_brown_text"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/txtLabelFullNames"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtSettingsExplained"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:labelFor="@+id/edtSettingsFullNames"
+                android:text="@string/full_names"
+                android:textColor="@color/dark_brown_text"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/edtSettingsFullNames"
+                android:layout_width="480dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/txtLabelFullNames"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:autofillHints="name"
+                android:background="@drawable/rounded_shape"
+                android:backgroundTint="@color/light_brown"
+                android:inputType="textPersonName|text"
+                android:padding="10dp"
+                android:textColor="@color/dark_brown_text" />
+
+            <TextView
+                android:id="@+id/txtLabelEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edtSettingsFullNames"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:labelFor="@+id/edtSettingsEmail"
+                android:text="@string/email_address"
+                android:textColor="@color/dark_brown_text"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/edtSettingsEmail"
+                android:layout_width="480dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/txtLabelEmail"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:autofillHints="emailAddress"
+                android:background="@drawable/rounded_shape"
+                android:backgroundTint="@color/light_brown"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:textColor="@color/dark_brown_text" />
+
+            <TextView
+                android:id="@+id/txtLabelUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edtSettingsEmail"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:labelFor="@+id/edtSettingsUsername"
+                android:text="@string/username"
+                android:textColor="@color/dark_brown_text"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/edtSettingsUsername"
+                android:layout_width="480dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/txtLabelUsername"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:autofillHints="username"
+                android:background="@drawable/rounded_shape"
+                android:backgroundTint="@color/light_brown"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColor="@color/dark_brown_text" />
+
+            <TextView
+                android:id="@+id/txtLabelPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edtSettingsUsername"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:labelFor="@+id/edtSettingsPassword"
+                android:text="@string/password"
+                android:textColor="@color/dark_brown_text"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/edtSettingsPassword"
+                android:layout_width="480dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/txtLabelPassword"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:autofillHints="password"
+                android:background="@drawable/rounded_shape"
+                android:backgroundTint="@color/light_brown"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColor="@color/dark_brown_text" />
+
+            <TextView
+                android:id="@+id/txtLabelMinGoal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edtSettingsPassword"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:labelFor="@+id/edtSettingsMinGoal"
+                android:text="@string/hint_min_goal"
+                android:textColor="@color/dark_brown_text"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/edtSettingsMinGoal"
+                android:layout_width="480dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/txtLabelMinGoal"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/rounded_shape"
+                android:backgroundTint="@color/light_brown"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textColor="@color/dark_brown_text" />
+
+            <TextView
+                android:id="@+id/txtLabelMaxGoal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edtSettingsMinGoal"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:labelFor="@+id/edtSettingsMaxGoal"
+                android:text="@string/hint_max_goal"
+                android:textColor="@color/dark_brown_text"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/edtSettingsMaxGoal"
+                android:layout_width="480dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/txtLabelMaxGoal"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_shape"
+                android:backgroundTint="@color/light_brown"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textColor="@color/dark_brown_text" />
+
+            <TextView
+                android:id="@+id/txtSettingsNotifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edtSettingsMaxGoal"
+                android:layout_marginHorizontal="13dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/settings_notifications"
+                android:textColor="@color/dark_brown_text"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/chkSettingsNotifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/txtSettingsNotifications"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/txtSettingsNotifications" />
+
+            <TextView
+                android:id="@+id/txtSettingsNotificationsExplained"
+                android:layout_width="480dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtSettingsNotifications"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="13dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/settings_notifications_explained"
+                android:textColor="@color/dark_brown_text"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+
+            <Button
+                android:id="@+id/btnSettingsSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtSettingsNotificationsExplained"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/light_brown"
+                android:text="@string/save"
+                android:textColor="@color/dark_brown_text" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txtSettingsHeading"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="8dp"
-        android:layout_marginHorizontal="13dp"
-        android:text="@string/settings_explained"
-        android:textColor="@color/dark_brown_text"
-        android:textSize="12sp"
-        android:textStyle="italic" />
-
-    <TextView
-        android:id="@+id/txtLabelFullNames"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtSettingsExplained"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/full_names"
-        android:textSize="14sp"
-        android:labelFor="@+id/edtSettingsFullNames"
-        android:textColor="@color/dark_brown_text" />
-
-    <EditText
-        android:id="@+id/edtSettingsFullNames"
-        android:layout_width="480dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/txtLabelFullNames"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:inputType="textPersonName|text"
-        android:padding="10dp"
-        android:background="@drawable/rounded_shape"
-        android:backgroundTint="@color/light_brown"
-        android:textColor="@color/dark_brown_text"
-        android:autofillHints="name" />
-
-    <TextView
-        android:id="@+id/txtLabelEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edtSettingsFullNames"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/email_address"
-        android:textSize="14sp"
-        android:labelFor="@+id/edtSettingsEmail"
-        android:textColor="@color/dark_brown_text"/>
-
-    <EditText
-        android:id="@+id/edtSettingsEmail"
-        android:layout_width="480dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/txtLabelEmail"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/rounded_shape"
-        android:backgroundTint="@color/light_brown"
-        android:inputType="textEmailAddress"
-        android:padding="10dp"
-        android:textColor="@color/dark_brown_text"
-        android:autofillHints="emailAddress" />
-
-    <TextView
-        android:id="@+id/txtLabelUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edtSettingsEmail"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/username"
-        android:textSize="14sp"
-        android:labelFor="@+id/edtSettingsUsername"
-        android:textColor="@color/dark_brown_text" />
-
-    <EditText
-        android:id="@+id/edtSettingsUsername"
-        android:layout_width="480dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/txtLabelUsername"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/rounded_shape"
-        android:backgroundTint="@color/light_brown"
-        android:inputType="text"
-        android:padding="10dp"
-        android:textColor="@color/dark_brown_text"
-        android:autofillHints="username"/>
-
-    <TextView
-        android:id="@+id/txtLabelPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edtSettingsUsername"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/password"
-        android:textSize="14sp"
-        android:labelFor="@+id/edtSettingsPassword"
-        android:textColor="@color/dark_brown_text" />
-
-    <EditText
-        android:id="@+id/edtSettingsPassword"
-        android:layout_width="480dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/txtLabelPassword"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:autofillHints="password"
-        android:background="@drawable/rounded_shape"
-        android:backgroundTint="@color/light_brown"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:textColor="@color/dark_brown_text" />
-
-    <TextView
-        android:id="@+id/txtLabelMinGoal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edtSettingsPassword"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/hint_min_goal"
-        android:textSize="14sp"
-        android:labelFor="@+id/edtSettingsMinGoal"
-        android:textColor="@color/dark_brown_text"/>
-
-    <EditText
-        android:id="@+id/edtSettingsMinGoal"
-        android:layout_width="480dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/txtLabelMinGoal"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/rounded_shape"
-        android:backgroundTint="@color/light_brown"
-        android:inputType="number"
-        android:padding="10dp"
-        android:textColor="@color/dark_brown_text" />
-
-    <TextView
-        android:id="@+id/txtLabelMaxGoal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edtSettingsMinGoal"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/hint_max_goal"
-        android:textSize="14sp"
-        android:labelFor="@+id/edtSettingsMaxGoal"
-        android:textColor="@color/dark_brown_text" />
-
-    <EditText
-        android:id="@+id/edtSettingsMaxGoal"
-        android:layout_width="480dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/txtLabelMaxGoal"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/rounded_shape"
-        android:backgroundTint="@color/light_brown"
-        android:inputType="number"
-        android:padding="10dp"
-        android:textColor="@color/dark_brown_text" />
-
-    <TextView
-        android:id="@+id/txtSettingsNotifications"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edtSettingsMaxGoal"
-        android:layout_marginTop="16dp"
-        android:text="@string/settings_notifications"
-        android:textColor="@color/dark_brown_text"
-        android:textSize="17sp"
-        android:layout_marginHorizontal="13dp"
-        android:textStyle="bold" />
-
-    <CheckBox
-        android:id="@+id/chkSettingsNotifications"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/txtSettingsNotifications"
-        android:layout_alignBaseline="@id/txtSettingsNotifications"
-        android:layout_marginStart="10dp" />
-
-    <TextView
-        android:id="@+id/txtSettingsNotificationsExplained"
-        android:layout_width="480dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtSettingsNotifications"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginHorizontal="13dp"
-        android:text="@string/settings_notifications_explained"
-        android:textColor="@color/dark_brown_text"
-        android:textSize="12sp"
-        android:textStyle="italic" />
-
-    <Button
-        android:id="@+id/btnSettingsSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtSettingsNotificationsExplained"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/light_brown"
-        android:textColor="@color/dark_brown_text"
-        android:text="@string/save" />
-
+        android:layout_alignParentBottom="true"
+        app:itemIconTint="@color/nav_item_state_list"
+        app:itemTextColor="@color/nav_item_state_list"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav" />
 
 </RelativeLayout>

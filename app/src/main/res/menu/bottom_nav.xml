@@ -1,17 +1,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_tasks"
-        android:title="Tasks"/>
+        android:title="Tasks"
+        android:icon="@drawable/baseline_format_list_bulleted_24"/>
     <item
         android:id="@+id/nav_categories"
-        android:title="Categories"/>
+        android:title="Categories"
+        android:icon="@drawable/baseline_category_24"/>
     <item
         android:id="@+id/nav_statistics"
-        android:title="Statistics"/>
+        android:title="Statistics"
+        android:icon="@drawable/baseline_query_stats_24"/>
     <item
         android:id="@+id/nav_rewards"
-        android:title="Rewards"/>
+        android:title="Rewards"
+        android:icon="@drawable/baseline_star_border_purple500_24"/>
     <item
         android:id="@+id/nav_settings"
-        android:title="Settings" />
+        android:title="Settings"
+        android:icon="@drawable/baseline_settings_24"/>
 </menu>
