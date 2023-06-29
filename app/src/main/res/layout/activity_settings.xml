@@ -214,7 +214,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/txtSettingsNotifications"
                 android:layout_marginStart="10dp"
-                android:layout_toEndOf="@id/txtSettingsNotifications" />
+                android:layout_toEndOf="@id/txtSettingsNotifications"
+                android:buttonTint="@color/checkbox_color"/>
 
             <TextView
                 android:id="@+id/txtSettingsNotificationsExplained"

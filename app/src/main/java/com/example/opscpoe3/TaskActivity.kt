@@ -41,6 +41,7 @@ class TaskActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //Functionality for navbar
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
 
         bottomNavigation.setOnNavigationItemSelectedListener { item ->

@@ -4,12 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
     tools:context=".CategoryActivity">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".CategoryActivity"/>
 
     <TextView
         android:id="@+id/txtCategoryHeading"
@@ -29,28 +25,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="66dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:layout_toEndOf="@id/txtCategoryHeading"
         android:backgroundTint="@color/light_brown"
         android:textColor="@color/dark_brown_text"
-        android:gravity="right"
         android:padding="10dp"
         android:text="@string/add_category" />
-
-    <Button
-        android:id="@+id/btnCategoryToTask"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:layout_toEndOf="@id/btnAddCategory"
-        android:textColor="@color/dark_brown_text"
-        android:backgroundTint="@color/light_brown"
-        android:padding="10dp"
-        android:text="@string/tasks_heading" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -68,5 +51,15 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav"
+        app:itemIconTint="@color/nav_item_state_list"
+        app:itemTextColor="@color/nav_item_state_list"
+        app:labelVisibilityMode="labeled"/>
 
 </RelativeLayout>

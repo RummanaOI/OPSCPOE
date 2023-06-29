@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.content.Intent
 import android.view.LayoutInflater
 import android.widget.*
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class CreateTaskActivity : AppCompatActivity() {
 
@@ -53,6 +54,45 @@ class CreateTaskActivity : AppCompatActivity() {
         val btnCancel: Button = findViewById(R.id.btnAddTaskCancel)
         btnCancel.setOnClickListener {
             navigateToTasks()
+        }
+
+        //Functionality for navbar
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_tasks -> {
+                    // Navigate to Tasks
+                    val intent = Intent(this, TaskActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_categories -> {
+                    // Navigate to Categories
+                    val intent = Intent(this, CategoryActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_statistics -> {
+                    // Navigate to Statistics
+                    val intent = Intent(this, StatisticsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_rewards -> {
+                    // Navigate to Rewards
+                    val intent = Intent(this, RewardsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_settings -> {
+                    // Navigate to Settings
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
         }
     }
     private fun navigateToTasks() {
