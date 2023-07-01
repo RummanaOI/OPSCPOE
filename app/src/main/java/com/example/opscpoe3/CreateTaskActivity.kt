@@ -16,6 +16,9 @@ class CreateTaskActivity : AppCompatActivity() {
     private lateinit var spnCategory : Spinner
     private lateinit var btnAddTask: Button
     private lateinit var btnCancel :Button
+    private lateinit var btnAddTaskPhoto :Button
+    private lateinit var imgTaskPhoto :ImageView
+    private val PHOTO_PICKER_REQUEST_CODE = 1
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +32,7 @@ class CreateTaskActivity : AppCompatActivity() {
         edtEndTime = findViewById(R.id.edtAddTaskEndTime)
         btnAddTask = findViewById(R.id.btnAddTask)
         btnCancel = findViewById(R.id.btnAddTaskCancel)
+        btnAddTaskPhoto = findViewById(R.id.btnAddTaskPhoto)
         spnCategory = findViewById(R.id.spnAddTaskCategory)
 
         //Populate spinner with categories
@@ -54,6 +58,21 @@ class CreateTaskActivity : AppCompatActivity() {
         val btnCancel: Button = findViewById(R.id.btnAddTaskCancel)
         btnCancel.setOnClickListener {
             navigateToTasks()
+        }
+
+        btnAddTaskPhoto.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent, PHOTO_PICKER_REQUEST_CODE)
+        }
+
+        fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+            super.onActivityResult(requestCode, resultCode, data)
+            if (requestCode == PHOTO_PICKER_REQUEST_CODE && resultCode == RESULT_OK) {
+                val photoUri = data?.data
+                imgTaskPhoto.setImageURI(photoUri)
+                // Save the URI somewhere if you need it later
+            }
         }
 
         //Functionality for navbar
