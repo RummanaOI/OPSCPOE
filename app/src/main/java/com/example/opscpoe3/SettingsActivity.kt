@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SettingsActivity : AppCompatActivity() {
@@ -35,6 +36,19 @@ class SettingsActivity : AppCompatActivity() {
         edtMaxGoal = findViewById(R.id.edtSettingsMaxGoal)
         chkNotifications = findViewById(R.id.chkSettingsNotifications)
         btnSave = findViewById(R.id.btnSettingsSave)
+
+        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+
+        // Get the current user
+        val currentUser = userViewModel.getCurrentUser()
+
+        // Populate the fields with the current user's information
+        edtFullName.setText(currentUser.name)
+        edtEmail.setText(currentUser.email)
+        edtUsername.setText(currentUser.username)
+        edtPassword.setText(currentUser.password)
+        edtMinGoal.setText(currentUser.minGoal)
+        edtMaxGoal.setText(currentUser.maxGoal)
 
         btnSave.setOnClickListener { editUser() }
 
@@ -91,7 +105,7 @@ class SettingsActivity : AppCompatActivity() {
         // Validate user data
         if (isValidRegistration(fullName, email, username, password, minGoal, maxGoal)) {
             // Add the new user to the list
-            userViewModel.updateUser(fullName, email, username, password, minGoal, maxGoal)
+            userViewModel.updateUser(this, fullName, email, username, password, minGoal, maxGoal)
 
             Toast.makeText(this, "User created successfully", Toast.LENGTH_SHORT).show()
 

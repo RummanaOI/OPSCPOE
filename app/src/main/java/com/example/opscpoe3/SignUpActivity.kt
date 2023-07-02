@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 
 
 class SignUpActivity : AppCompatActivity() {
@@ -40,6 +41,8 @@ class SignUpActivity : AppCompatActivity() {
 
         btnSignUp.setOnClickListener { signUpUser() }
         btnLogin.setOnClickListener { redirectToMainActivity() }
+
+        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
     }
 
     private fun signUpUser() {
@@ -53,7 +56,7 @@ class SignUpActivity : AppCompatActivity() {
         // Validate user data
         if (isValidRegistration(fullName, email, username, password, minGoal, maxGoal)) {
             // Add the new user to the list
-            userViewModel.addUser(fullName, email, username, password, minGoal, maxGoal)
+            userViewModel.addUser(this, fullName, email, username, password, minGoal, maxGoal)
 
             Toast.makeText(this, "User created successfully", Toast.LENGTH_SHORT).show()
 
@@ -70,22 +73,15 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun isValidRegistration(
-        fullName: String,
-        email: String,
-        username: String,
-        password: String,
-        minGoal: String,
-        maxGoal: String
+        fullName :String,
+        email : String,
+        username : String,
+        password : String,
+        minGoal : String,
+        maxGoal : String
     ): Boolean {
-        // Check if the email or username is already taken
-        val existingUser = users.find { it.email == email || it.username == username }
-        return existingUser == null &&
-                fullName.isNotEmpty() &&
-                email.isNotEmpty() &&
-                username.isNotEmpty() &&
-                password.isNotEmpty() &&
-                minGoal.isNotEmpty() &&
-                maxGoal.isNotEmpty()
+
+        return !(fullName.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty() || minGoal.isEmpty() || maxGoal.isEmpty())
     }
 
     private fun redirectToMainActivity() {
