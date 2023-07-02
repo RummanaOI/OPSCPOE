@@ -1,0 +1,18 @@
+Tasks to be done:
+
+UI 
+Rewards interface 
+Navigation bar 
+Fixing color selecter for category 
+
+Database
+Implement database 
+Fill components on edit page from the selected category/task that the user selects 
+Functionality to save changes from edit page to the database 
+Functionality to save changes from settings to database 
+Get categories from database for categories page
+Get tasks from database from tasks page 
+
+Backend 
+Rewards backend
+Saving category with selected user color - do we have a colour object? is colour just an int? 
