@@ -10,6 +10,7 @@ import android.graphics.Color
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class CategoryActivity : AppCompatActivity() {
 
@@ -27,23 +28,52 @@ class CategoryActivity : AppCompatActivity() {
         btnAddCategory.setOnClickListener {
             navigateToCreateCategory()
         }
-        // Add click listener to the "Tasks" button in order to navigate to tasks page
-        val btnGoToTasks: Button = findViewById(R.id.btnCategoryToTask)
-        btnGoToTasks.setOnClickListener {
-            navigateToTasks()
-        }
 
         // Fetch category data from the database and populate the category list
         fetchCategoriesFromDatabase()
+
+        //Functionality for navbar
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_tasks -> {
+                    // Navigate to Tasks
+                    val intent = Intent(this, TaskActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_categories -> {
+                    // Navigate to Categories
+                    val intent = Intent(this, CategoryActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_statistics -> {
+                    // Navigate to Statistics
+                    val intent = Intent(this, StatisticsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_rewards -> {
+                    // Navigate to Rewards
+                    val intent = Intent(this, RewardsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_settings -> {
+                    // Navigate to Settings
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
         private fun navigateToCreateCategory() {
             val intent = Intent(this, CreateCategoryActivity::class.java)
-            startActivity(intent)
-        }
-
-        private fun navigateToTasks() {
-            val intent = Intent(this, TaskActivity::class.java)
             startActivity(intent)
         }
 
@@ -96,7 +126,5 @@ class CategoryActivity : AppCompatActivity() {
 
         return categoryItemView
     }
-
-    data class Category(val name: String, val description: String, val color: Int)
 
 }//Adapted from : https://www.javatpoint.com/kotlin-android-textview-and-edittext// JavaTPoint // 2019

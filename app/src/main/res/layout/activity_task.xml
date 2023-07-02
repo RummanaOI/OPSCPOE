@@ -35,7 +35,7 @@
         android:backgroundTint="@color/light_brown"
         android:textColor="@color/dark_brown_text"
         android:padding="10dp"
-        android:text="@string/add_task" />
+        android:text="@string/add_task"/>
 
     <Button
         android:id="@+id/btnTasksToCategory"
@@ -88,5 +88,14 @@
 
     </LinearLayout>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav"
+        app:itemIconTint="@color/nav_item_state_list"
+        app:itemTextColor="@color/nav_item_state_list"
+        app:labelVisibilityMode="labeled"/>
 
 </RelativeLayout>

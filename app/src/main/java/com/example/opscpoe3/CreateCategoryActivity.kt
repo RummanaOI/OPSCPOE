@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.opscpoe3.databinding.ActivityCreateCategoryBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class CreateCategoryActivity : AppCompatActivity() {
     //Adapted from: Medium FindByView
@@ -40,6 +41,45 @@ class CreateCategoryActivity : AppCompatActivity() {
         val btnCancel: Button = findViewById(R.id.btnAddCategoryCancel)
         btnCancel.setOnClickListener {
             navigateToCategory()
+        }
+
+        //Functionality for navbar
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_tasks -> {
+                    // Navigate to Tasks
+                    val intent = Intent(this, TaskActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_categories -> {
+                    // Navigate to Categories
+                    val intent = Intent(this, CategoryActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_statistics -> {
+                    // Navigate to Statistics
+                    val intent = Intent(this, StatisticsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_rewards -> {
+                    // Navigate to Rewards
+                    val intent = Intent(this, RewardsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_settings -> {
+                    // Navigate to Settings
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
         }
     }
 

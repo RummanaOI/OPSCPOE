@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.content.Intent
 import android.view.LayoutInflater
 import android.widget.*
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class CreateTaskActivity : AppCompatActivity() {
 
@@ -15,6 +16,9 @@ class CreateTaskActivity : AppCompatActivity() {
     private lateinit var spnCategory : Spinner
     private lateinit var btnAddTask: Button
     private lateinit var btnCancel :Button
+    private lateinit var btnAddTaskPhoto :Button
+    private lateinit var imgTaskPhoto :ImageView
+    private val PHOTO_PICKER_REQUEST_CODE = 1
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +32,7 @@ class CreateTaskActivity : AppCompatActivity() {
         edtEndTime = findViewById(R.id.edtAddTaskEndTime)
         btnAddTask = findViewById(R.id.btnAddTask)
         btnCancel = findViewById(R.id.btnAddTaskCancel)
+        btnAddTaskPhoto = findViewById(R.id.btnAddTaskPhoto)
         spnCategory = findViewById(R.id.spnAddTaskCategory)
 
         //Populate spinner with categories
@@ -53,6 +58,60 @@ class CreateTaskActivity : AppCompatActivity() {
         val btnCancel: Button = findViewById(R.id.btnAddTaskCancel)
         btnCancel.setOnClickListener {
             navigateToTasks()
+        }
+
+        btnAddTaskPhoto.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent, PHOTO_PICKER_REQUEST_CODE)
+        }
+
+        fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+            super.onActivityResult(requestCode, resultCode, data)
+            if (requestCode == PHOTO_PICKER_REQUEST_CODE && resultCode == RESULT_OK) {
+                val photoUri = data?.data
+                imgTaskPhoto.setImageURI(photoUri)
+                // Save the URI somewhere if you need it later
+            }
+        }
+
+        //Functionality for navbar
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_tasks -> {
+                    // Navigate to Tasks
+                    val intent = Intent(this, TaskActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_categories -> {
+                    // Navigate to Categories
+                    val intent = Intent(this, CategoryActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_statistics -> {
+                    // Navigate to Statistics
+                    val intent = Intent(this, StatisticsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_rewards -> {
+                    // Navigate to Rewards
+                    val intent = Intent(this, RewardsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_settings -> {
+                    // Navigate to Settings
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
         }
     }
     private fun navigateToTasks() {
