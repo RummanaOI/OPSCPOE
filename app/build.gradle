@@ -55,5 +55,10 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+//for ViewModel
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+
 }
 //Color Picker Android Studio Kotlin Custom Spinner Tutorial. (2021, October 8). [Video]. Youtube. Retrieved June 6, 2023, from https://www.youtube.com/watch?v=YsKjl8ZbM4g

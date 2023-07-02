@@ -21,7 +21,8 @@ class SignUpActivity : AppCompatActivity() {
 
 
     //Adapted from: TutorialsPoint Kotlin Arrays
-    private val users: ArrayList<Users> = ArrayList()
+    private val users: ArrayList<User> = ArrayList()
+    private lateinit var userViewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,11 +52,8 @@ class SignUpActivity : AppCompatActivity() {
 
         // Validate user data
         if (isValidRegistration(fullName, email, username, password, minGoal, maxGoal)) {
-            // Create a new user
-            val newUser = Users(fullName, email, username, password, minGoal, maxGoal)
-
             // Add the new user to the list
-            users.add(newUser)
+            userViewModel.addUser(fullName, email, username, password, minGoal, maxGoal)
 
             Toast.makeText(this, "User created successfully", Toast.LENGTH_SHORT).show()
 

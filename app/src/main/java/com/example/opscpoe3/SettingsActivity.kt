@@ -20,7 +20,7 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var chkNotifications: CheckBox
     private lateinit var btnSave : Button
 
-    private val users: ArrayList<Users> = ArrayList()
+    private lateinit var userViewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,7 @@ class SettingsActivity : AppCompatActivity() {
         chkNotifications = findViewById(R.id.chkSettingsNotifications)
         btnSave = findViewById(R.id.btnSettingsSave)
 
-        btnSave.setOnClickListener { signUpUser() }
+        btnSave.setOnClickListener { editUser() }
 
         //Functionality for navbar
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
@@ -80,7 +80,7 @@ class SettingsActivity : AppCompatActivity() {
     }
 
 
-    private fun signUpUser() {
+    private fun editUser() {
         val fullName = edtFullName.text.toString()
         val email = edtEmail.text.toString()
         val username = edtUsername.text.toString()
@@ -90,11 +90,8 @@ class SettingsActivity : AppCompatActivity() {
 
         // Validate user data
         if (isValidRegistration(fullName, email, username, password, minGoal, maxGoal)) {
-            // Create a new user
-            val newUser = Users(fullName, email, username, password, minGoal, maxGoal)
-
             // Add the new user to the list
-            users.add(newUser)
+            userViewModel.updateUser(fullName, email, username, password, minGoal, maxGoal)
 
             Toast.makeText(this, "User created successfully", Toast.LENGTH_SHORT).show()
 
@@ -106,26 +103,20 @@ class SettingsActivity : AppCompatActivity() {
             edtMinGoal.text.clear()
             edtMaxGoal.text.clear()
         } else {
-            Toast.makeText(this, "Invalid user data", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Invalid user data, Please fill in all fields", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun isValidRegistration(
-        fullName: String,
-        email: String,
-        username: String,
-        password: String,
-        minGoal: String,
-        maxGoal: String
+        fullName :String,
+        email : String,
+        username : String,
+        password : String,
+        minGoal : String,
+        maxGoal : String
     ): Boolean {
-        // Check if the email or username is already taken
-        val existingUser = users.find { it.email == email || it.username == username }
-        return existingUser == null &&
-                fullName.isNotEmpty() &&
-                email.isNotEmpty() &&
-                username.isNotEmpty() &&
-                password.isNotEmpty() &&
-                minGoal.isNotEmpty() &&
-                maxGoal.isNotEmpty()
+
+        return !(fullName.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty() || minGoal.isEmpty() || maxGoal.isEmpty())
     }
+
 }

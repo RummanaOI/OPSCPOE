@@ -8,15 +8,13 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 
 class MainActivity : AppCompatActivity() {
     // Sample user data array
     //Adapted from: JavaTPoint  Android Activity Page
-    private val users = arrayOf(
-        User("Rummana", "password1"),
-        User("Kaiyur", "password2"),
-        User("Sharif", "password3")
-    )
+
+    private lateinit var userViewModel: UserViewModel
 
     private lateinit var txtUsername: EditText
     private lateinit var txtPassword: EditText
@@ -33,6 +31,9 @@ class MainActivity : AppCompatActivity() {
         btnHomeNoAccount = findViewById(R.id.btnHomeNoAccount)
         btnLogin.setOnClickListener { loginUser() }
         btnHomeNoAccount.setOnClickListener{signUpUser()}
+
+        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        userViewModel.populateUsers(this)
     }
     private fun signUpUser(){
         val intent = Intent(this,SignUpActivity ::class.java)
@@ -41,35 +42,22 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun loginUser() {
+
         val username = txtUsername.text.toString()
         val password = txtPassword.text.toString()
 
-        val isValidUser = validateUser(username, password)
+        val isValidUser = userViewModel.signInUser(username, password)
 
         if (isValidUser) {
             Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
             // Proceed with further actions after successful login
             //directs to create category if user credentials are correct
-            val intent = Intent(this,CategoryActivity ::class.java)
+            val intent = Intent(this, TaskActivity::class.java)
             startActivity(intent)
-
-
         } else {
             Toast.makeText(this, "Invalid credentials", Toast.LENGTH_SHORT).show()
-
         }
     }
 
-
-    private fun validateUser(username: String, password: String): Boolean {
-        for (user in users) {
-            if (user.username == username && user.password == password) {
-                return true
-            }
-        }
-        return false
-    }
-
-    data class User(val username: String, val password: String)
 }
 //Adapted from : https://www.javatpoint.com/android-life-cycle-of-activity// JavaTPoint // 2019
