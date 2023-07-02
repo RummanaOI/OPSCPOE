@@ -127,6 +127,4 @@ class CategoryActivity : AppCompatActivity() {
         return categoryItemView
     }
 
-    data class Category(val name: String, val description: String, val color: Int)
-
 }//Adapted from : https://www.javatpoint.com/kotlin-android-textview-and-edittext// JavaTPoint // 2019

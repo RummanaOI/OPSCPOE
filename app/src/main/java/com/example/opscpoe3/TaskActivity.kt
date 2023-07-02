@@ -173,14 +173,4 @@ class TaskActivity : AppCompatActivity() {
 
 }
 
-data class Task(
-    val category: String,
-    val name: String,
-    val description: String,
-    val startTime: String,
-    val endTime: String,
-    val image: String?,
-    val date: Date
-)
-
 //Code with Cal. (2020, December 20). Pop Up Date Picker Android Studio Tutorial [Video]. YouTube. Retrieved June 6, 2023, from https://www.youtube.com/watch?v=qCoidM98zNk
