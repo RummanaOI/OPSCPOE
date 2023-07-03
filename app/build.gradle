@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -51,10 +52,19 @@ dependencies {
     //navbar 2.0
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
-
+    implementation 'com.google.firebase:firebase-auth:21.0.3'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:32.1.1')
+
+    // Declare the dependencies for the desired Firebase products without specifying versions
+    // For example, declare the dependencies for Firebase Authentication and Cloud Firestore
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore'
 }
+apply plugin: 'com.google.gms.google-services'
 //Color Picker Android Studio Kotlin Custom Spinner Tutorial. (2021, October 8). [Video]. Youtube. Retrieved June 6, 2023, from https://www.youtube.com/watch?v=YsKjl8ZbM4g
