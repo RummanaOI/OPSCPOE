@@ -21,7 +21,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="590dp"
         android:layout_below="@id/txtSettingsHeading">
 
         <RelativeLayout
@@ -237,7 +237,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txtSettingsNotificationsExplained"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/light_brown"
                 android:text="@string/save"
                 android:textColor="@color/dark_brown_text" />

@@ -8,17 +8,16 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+
 
 class MainActivity : AppCompatActivity() {
     // Sample user data array
     //Adapted from: JavaTPoint  Android Activity Page
-    private val users = arrayOf(
-        User("Rummana", "password1"),
-        User("Kaiyur", "password2"),
-        User("Sharif", "password3")
-    )
-
-    private lateinit var txtUsername: EditText
+    private lateinit var auth: FirebaseAuth
+    private lateinit var txtEmailAddress: EditText
     private lateinit var txtPassword: EditText
     private lateinit var btnLogin: Button
     private lateinit var btnHomeNoAccount: Button
@@ -27,11 +26,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        txtUsername = findViewById(R.id.txtHomeUsername)
+        auth = Firebase.auth
+
+        txtEmailAddress = findViewById(R.id.txtHomeUsername)
         txtPassword = findViewById(R.id.txtHomePassword)
         btnLogin = findViewById(R.id.btnHomeLogin)
         btnHomeNoAccount = findViewById(R.id.btnHomeNoAccount)
-        btnLogin.setOnClickListener { loginUser() }
+        btnLogin.setOnClickListener { performLogin() }
         btnHomeNoAccount.setOnClickListener{signUpUser()}
     }
     private fun signUpUser(){
@@ -40,36 +41,41 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun loginUser() {
-        val username = txtUsername.text.toString()
+    private fun performLogin() {
+        //gets input from the user
+        val email = txtEmailAddress.text.toString()
         val password = txtPassword.text.toString()
 
-        val isValidUser = validateUser(username, password)
+        //check if null
+        if(email.isEmpty() || password.isEmpty()){
+            Toast.makeText(this, "Please fill in credentials",Toast.LENGTH_SHORT)
+                .show()
+            return
+            //if not null then try login
+        }else{
+            auth.signInWithEmailAndPassword(email,password)
+                .addOnCompleteListener(this){task ->
+                    if(task.isSuccessful) {
+                        //Sign in success
+                        //change intents where necessary
+                        val intent = Intent(this, TaskActivity::class.java)
+                        startActivity(intent)
 
-        if (isValidUser) {
-            Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
-            // Proceed with further actions after successful login
-            //directs to create category if user credentials are correct
-            val intent = Intent(this,CategoryActivity ::class.java)
-            startActivity(intent)
+                        Toast.makeText(baseContext, "Successful", Toast.LENGTH_SHORT).show()
+                    } else {
+                        //if sign in fails
+                        Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                    }
 
-
-        } else {
-            Toast.makeText(this, "Invalid credentials", Toast.LENGTH_SHORT).show()
-
+                }
+                .addOnFailureListener{
+                    Toast.makeText(
+                        this, "Error occurred${it.localizedMessage}", Toast.LENGTH_SHORT)
+                        .show()
+                }
         }
+
     }
 
-
-    private fun validateUser(username: String, password: String): Boolean {
-        for (user in users) {
-            if (user.username == username && user.password == password) {
-                return true
-            }
-        }
-        return false
-    }
-
-    data class User(val username: String, val password: String)
 }
 //Adapted from : https://www.javatpoint.com/android-life-cycle-of-activity// JavaTPoint // 2019
