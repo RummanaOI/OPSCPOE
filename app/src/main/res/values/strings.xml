@@ -42,7 +42,7 @@
     <string name="tasks_heading">Tasks</string>
     <string name="task_name_hint">Task name</string>
     <string name="task_description_hint">Task description</string>
-    <string name="task_start_time_hint">Task start time</string>
+    <string name="task_start_time_hint">Add Task time</string>
     <string name="task_end_time_hint">Task end time</string>
     <string name="select_date">Select date</string>
     <string name="update_task">Update Task</string>
@@ -51,4 +51,6 @@
     <!-- Tasks -->
     <string name="stats">Statistics</string>
     <string name="barchart_heading">How well have you kept up with your goals?</string>
+    <string name="linechart_heading">See how much time you spend working on a category by selecting a category below</string>
+
 </resources>

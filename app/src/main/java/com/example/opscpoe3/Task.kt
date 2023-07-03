@@ -7,8 +7,7 @@ data class Task(
     val category: String,
     val name: String,
     val description: String,
-    val startTime: String,
-    val endTime: String,
-    val image: String?,
-    val date: Date,
+    val date: String,
+    val hours: Int,
+    val imageUrl: String?
 )

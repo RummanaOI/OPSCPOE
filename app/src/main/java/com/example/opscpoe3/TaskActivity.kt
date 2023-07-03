@@ -162,12 +162,12 @@ class TaskActivity : AppCompatActivity() {
     private fun fetchTasksFromDatabase(): List<Task> {
         // TODO: Fetch tasks from the database for the selected date
         // Replace this with your actual implementation
-        val currentDate = Date()
+        val currentDate = Date().toString()
 
         return listOf(
-            Task("Work", "Make presentation", "Make powerpoint presentation", "08:00 AM", "10:00 AM", null, currentDate),
-            Task("Personal", "Doctor appointment", "In Menlyn", "12:00 PM", "02:00 PM", null, currentDate),
-            Task("Study", "OPSC POE", "Complete part 2", "04:00 PM", "06:00 PM", null, currentDate)
+            Task("Work", "Make presentation", "Make powerpoint presentation", currentDate, 4, null),
+            Task("Personal", "Doctor appointment", "In Menlyn", currentDate, 4, null),
+            Task("Study", "OPSC POE", "Complete part 2", currentDate, 3, null)
         )
     }
 

@@ -3,12 +3,28 @@ package com.example.opscpoe3
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.GridView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.util.*
+import kotlin.collections.ArrayList
 
 class RewardsActivity : AppCompatActivity() {
+
+    private lateinit var dayGv: GridView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rewards)
+
+        dayGv= findViewById(R.id.RewardsGrid)
+        val calendar = Calendar.getInstance()
+        val daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+        val dayModelArrayList: ArrayList<Day?> = ArrayList()
+        for(i in 1 .. daysInMonth) {
+            dayModelArrayList.add(Day(i,R.drawable.ic_star))
+        }
+        val adaptor = CalendarAdaptor (this, dayModelArrayList)
+        dayGv.adapter = adaptor
 
         //Functionality for navbar
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)

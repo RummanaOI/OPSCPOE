@@ -72,10 +72,10 @@ class CategoryActivity : AppCompatActivity() {
         }
     }
 
-        private fun navigateToCreateCategory() {
-            val intent = Intent(this, CreateCategoryActivity::class.java)
-            startActivity(intent)
-        }
+    private fun navigateToCreateCategory() {
+        val intent = Intent(this, CreateCategoryActivity::class.java)
+        startActivity(intent)
+    }
 
     private fun fetchCategoriesFromDatabase() {
         // Fetch category data from the database (replace with your implementation)
@@ -86,9 +86,9 @@ class CategoryActivity : AppCompatActivity() {
         val red = ContextCompat.getColor(this, R.color.red_category3)
         val green = ContextCompat.getColor(this, R.color.green_category2)
         val categories = listOf(
-            Category("Work", "Manage work-related tasks", red),
-            Category("Personal", "Organize personal activities", blue),
-            Category("Study", "Track study sessions", green)
+            Category("Work", "Manage work-related tasks"),
+            Category("Personal", "Organize personal activities"),
+            Category("Study", "Track study sessions")
         )
 
         // Iterate over the categories and create category items dynamically
@@ -105,7 +105,7 @@ class CategoryActivity : AppCompatActivity() {
             LayoutInflater.from(this).inflate(R.layout.category_item, null) as LinearLayout
 
         // Set background color of the category block
-        categoryItemView.setBackgroundColor(category.color)
+        //categoryItemView.setBackgroundColor(category.color)
 
         val textColour = ContextCompat.getColor(this, R.color.dark_brown_text)
         // Set category name and description

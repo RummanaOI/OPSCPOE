@@ -69,14 +69,14 @@
             </LinearLayout>
 
             <EditText
-                android:id="@+id/txtHomeUsername"
+                android:id="@+id/txtHomeEmail"
                 android:layout_width="180dp"
                 android:layout_height="50dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/rounded_shape"
                 android:backgroundTint="@color/light_brown"
                 android:ems="10"
-                android:hint="@string/username"
+                android:hint="@string/email"
                 android:inputType="textPersonName"
                 android:padding="10dp"
                 android:textColor="@color/dark_brown_text" />

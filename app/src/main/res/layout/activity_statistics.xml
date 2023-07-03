@@ -29,7 +29,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/txtStatstatsBarChartHeading"
+                android:id="@+id/txtStatsBarChartHeading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
@@ -40,7 +40,7 @@
                 android:id="@+id/statsBarChart"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_below="@+id/txtStatstatsBarChartHeading"
+                android:layout_below="@+id/txtStatsBarChartHeading"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 app:chart_axis="x"
@@ -51,9 +51,44 @@
                 app:chart_spacing="15dp"/>
 
             <TextView
+                android:id="@+id/txtStatsLineChartHeading"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:paddingBottom="10dp"
+                android:layout_below="@+id/statsBarChart"
+                android:text="@string/linechart_heading"
+                android:textColor="@color/dark_brown_text" />
+
+            <TextView
+                android:id="@+id/txtStatsLabelCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtStatsLineChartHeading"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/category"
+                android:labelFor="@+id/spnEditTaskCategory"
+                android:textColor="@color/dark_brown_text"
+                android:textSize="14sp" />
+
+            <Spinner
+                android:id="@+id/spnStatsCategory"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/txtStatsLabelCategory"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_shape"
+                android:backgroundTint="@color/light_brown"
+                android:padding="10dp"
+                android:contentDescription="@string/select_category"/>
+
+            <TextView
                 tools:text="Chart Data"
                 android:id="@+id/txtStatsLineGraphData"
-                android:layout_below="@+id/statsBarChart"
+                android:layout_below="@+id/spnStatsCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="16dp"
@@ -63,15 +98,15 @@
             <com.db.williamchart.view.LineChartView
                 android:id="@+id/statsLineChart"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="150dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 app:chart_axis="none"
                 app:chart_gridEffect="dotted"
-                app:chart_labelsColor="#0D47A1"
+                app:chart_labelsColor="@color/dark_brown_text"
                 app:chart_labelsSize="10sp"
-                app:chart_lineColor="#ffffff"
-                app:chart_lineThickness="3dp"
+                app:chart_lineColor="@color/light_brown"
+                app:chart_lineThickness="4dp"
                 app:chart_smoothLine="true"
                 android:layout_below="@+id/txtStatsLineGraphData"/>
 

@@ -1,12 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:orientation="vertical"
     tools:context=".RewardsActivity">
+
+
+<TextView
+    android:id="@+id/textViewTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:text="Rewards"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    android:padding="16dp"
+    />
+
+<EditText
+    android:id="@+id/editTextInput1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/textViewTitle"
+    android:layout_marginBottom="16dp"
+    android:padding="16dp"
+    android:hint="log your working hours on the same day and earn Rewards!" />
+
+<GridView
+    android:layout_width="match_parent"
+    android:layout_height="700dp"
+    android:id="@+id/RewardsGrid"
+    android:scrollbarThumbVertical="@android:color/transparent"
+    android:numColumns="7"
+    android:verticalSpacing="10dp"
+    android:horizontalSpacing="0dp"
+    android:padding="0dp"
+    />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -18,5 +51,4 @@
         app:itemTextColor="@color/nav_item_state_list"
         app:labelVisibilityMode="labeled"/>
 
-
-</RelativeLayout>
+</LinearLayout>

@@ -94,37 +94,12 @@
                 android:padding="10dp"
                 android:textColor="@color/dark_brown_text" />
 
-            <TextView
-                android:id="@+id/txtLabelUsername"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/edtSettingsEmail"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:labelFor="@+id/edtSettingsUsername"
-                android:text="@string/username"
-                android:textColor="@color/dark_brown_text"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/edtSettingsUsername"
-                android:layout_width="480dp"
-                android:layout_height="50dp"
-                android:layout_below="@id/txtLabelUsername"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:autofillHints="username"
-                android:background="@drawable/rounded_shape"
-                android:backgroundTint="@color/light_brown"
-                android:inputType="text"
-                android:padding="10dp"
-                android:textColor="@color/dark_brown_text" />
 
             <TextView
                 android:id="@+id/txtLabelPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/edtSettingsUsername"
+                android:layout_below="@id/edtSettingsEmail"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:labelFor="@+id/edtSettingsPassword"

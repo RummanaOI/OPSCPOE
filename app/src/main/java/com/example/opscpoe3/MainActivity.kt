@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         auth = Firebase.auth
 
-        txtEmailAddress = findViewById(R.id.txtHomeUsername)
+        txtEmailAddress = findViewById(R.id.txtHomeEmail)
         txtPassword = findViewById(R.id.txtHomePassword)
         btnLogin = findViewById(R.id.btnHomeLogin)
         btnHomeNoAccount = findViewById(R.id.btnHomeNoAccount)
