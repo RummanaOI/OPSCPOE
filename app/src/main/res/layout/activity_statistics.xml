@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,15 +7,87 @@
     android:padding="16dp"
     tools:context=".StatisticsActivity">
 
+    <TextView
+        android:id="@+id/txtStatsHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:padding="10dp"
+        android:text="@string/stats"
+        android:textColor="@color/dark_brown"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:layout_below="@id/txtStatsHeading">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtStatstatsBarChartHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:text="@string/barchart_heading"
+                android:textColor="@color/dark_brown_text" />
+
+            <com.db.williamchart.view.BarChartView
+                android:id="@+id/statsBarChart"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@+id/txtStatstatsBarChartHeading"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:chart_axis="x"
+                app:chart_barsColor="@color/light_brown"
+                app:chart_barsRadius="4dp"
+                app:chart_labelsColor="@color/dark_brown_text"
+                app:chart_labelsSize="10sp"
+                app:chart_spacing="15dp"/>
+
+            <TextView
+                tools:text="Chart Data"
+                android:id="@+id/txtStatsLineGraphData"
+                android:layout_below="@+id/statsBarChart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.db.williamchart.view.LineChartView
+                android:id="@+id/statsLineChart"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:chart_axis="none"
+                app:chart_gridEffect="dotted"
+                app:chart_labelsColor="#0D47A1"
+                app:chart_labelsSize="10sp"
+                app:chart_lineColor="#ffffff"
+                app:chart_lineThickness="3dp"
+                app:chart_smoothLine="true"
+                android:layout_below="@+id/txtStatsLineGraphData"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_nav"
         app:itemIconTint="@color/nav_item_state_list"
         app:itemTextColor="@color/nav_item_state_list"
-        app:labelVisibilityMode="labeled"/>
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav" />
 
 
 </RelativeLayout>
