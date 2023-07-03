@@ -45,9 +45,9 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun loadUser(username: String, password: String): Boolean {
+    fun loadUser(email: String, username: String): Boolean {
         for (user in users) {
-            if (user.username == username && user.password == password) {
+            if (user.username == username && user.email == email) {
                 return true
             }
         }

@@ -10,15 +10,20 @@ import android.graphics.Color
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class CategoryActivity : AppCompatActivity() {
 
+    private lateinit var categoryViewModel: CategoryViewModel
     private lateinit var llCategoryList: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
+
+        categoryViewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
+        categoryViewModel.populateCategories(this)
 
         // Get references to layout components
         llCategoryList = findViewById(R.id.llCategoryList)
@@ -82,14 +87,7 @@ class CategoryActivity : AppCompatActivity() {
 
         // Dummy category data for demonstration purposes
 
-        val blue = ContextCompat.getColor(this, R.color.blue_category1)
-        val red = ContextCompat.getColor(this, R.color.red_category3)
-        val green = ContextCompat.getColor(this, R.color.green_category2)
-        val categories = listOf(
-            Category("Work", "Manage work-related tasks", red),
-            Category("Personal", "Organize personal activities", blue),
-            Category("Study", "Track study sessions", green)
-        )
+        val categories = categoryViewModel.getCategories()
 
         // Iterate over the categories and create category items dynamically
         for (category in categories) {
@@ -104,9 +102,12 @@ class CategoryActivity : AppCompatActivity() {
         val categoryItemView =
             LayoutInflater.from(this).inflate(R.layout.category_item, null) as LinearLayout
 
-        // Set background color of the category block
-        categoryItemView.setBackgroundColor(category.color)
+        val blue = ContextCompat.getColor(this, R.color.blue_category1)
+        val red = ContextCompat.getColor(this, R.color.red_category3)
+        val green = ContextCompat.getColor(this, R.color.green_category2)
 
+        // Set background color of the category block
+        categoryItemView.setBackgroundColor(blue)
         val textColour = ContextCompat.getColor(this, R.color.dark_brown_text)
         // Set category name and description
         val txtCategoryName: TextView = categoryItemView.findViewById(R.id.txtCategoryName)

@@ -9,11 +9,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.opscpoe3.databinding.ActivityCreateCategoryBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class CreateCategoryActivity : AppCompatActivity() {
     //Adapted from: Medium FindByView
+
+    private lateinit var categoryViewModel: CategoryViewModel
     private lateinit var binding : ActivityCreateCategoryBinding
     private lateinit var selectedColor : ColorObject
     private lateinit var edtCategoryName: EditText
@@ -31,6 +34,9 @@ class CreateCategoryActivity : AppCompatActivity() {
         edtCategoryName = findViewById(R.id.edtAddCategoryName)
         edtCategoryDescription = findViewById(R.id.edtAddCategoryDescription)
         btnSaveCategory = findViewById(R.id.btnAddCategorySaveCategory)
+
+        categoryViewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
+        categoryViewModel.populateCategories(this)
 
         // Add click listener to the "save" button in order to save category information
         btnSaveCategory.setOnClickListener {
@@ -107,11 +113,12 @@ class CreateCategoryActivity : AppCompatActivity() {
     }
 
     private fun saveCategory() {
-        val categoryName = edtCategoryName.text.toString().trim()
-        val categoryDescription = edtCategoryDescription.text.toString().trim()
+        val categoryName = edtCategoryName.text.toString()
+        val categoryDescription = edtCategoryDescription.text.toString()
 
         // Perform validation checks here if needed
 
+        categoryViewModel.addCategory(this, categoryName, categoryDescription)
         // Save the category to the database or perform any other desired action
         // Include the selectedColor variable when saving the category
 

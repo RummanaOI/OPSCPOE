@@ -43,6 +43,7 @@ class SignUpActivity : AppCompatActivity() {
         btnLogin.setOnClickListener { redirectToMainActivity() }
 
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        userViewModel.populateUsers(this)
     }
 
     private fun signUpUser() {
@@ -60,13 +61,17 @@ class SignUpActivity : AppCompatActivity() {
 
             Toast.makeText(this, "User created successfully", Toast.LENGTH_SHORT).show()
 
-            // Clear input fields
-            edtFullName.text.clear()
-            edtEmail.text.clear()
-            edtUsername.text.clear()
-            edtPassword.text.clear()
-            edtMinGoal.text.clear()
-            edtMaxGoal.text.clear()
+            val isValidUser = userViewModel.signInUser(username, password)
+            if (isValidUser) {
+                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+                // Proceed with further actions after successful login
+                //directs to create category if user credentials are correct
+                val intent = Intent(this, TaskActivity::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Invalid credentials", Toast.LENGTH_SHORT).show()
+            }
+
         } else {
             Toast.makeText(this, "Invalid user data", Toast.LENGTH_SHORT).show()
         }
@@ -81,7 +86,7 @@ class SignUpActivity : AppCompatActivity() {
         maxGoal : String
     ): Boolean {
 
-        return !(fullName.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty() || minGoal.isEmpty() || maxGoal.isEmpty())
+        return !(fullName.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty() || minGoal.isEmpty() || maxGoal.isEmpty()||userViewModel.loadUser(email, username))
     }
 
     private fun redirectToMainActivity() {

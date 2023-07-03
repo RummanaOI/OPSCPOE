@@ -39,17 +39,6 @@ class SettingsActivity : AppCompatActivity() {
 
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
-        // Get the current user
-        val currentUser = userViewModel.getCurrentUser()
-
-        // Populate the fields with the current user's information
-        edtFullName.setText(currentUser.name)
-        edtEmail.setText(currentUser.email)
-        edtUsername.setText(currentUser.username)
-        edtPassword.setText(currentUser.password)
-        edtMinGoal.setText(currentUser.minGoal)
-        edtMaxGoal.setText(currentUser.maxGoal)
-
         btnSave.setOnClickListener { editUser() }
 
         //Functionality for navbar
@@ -92,7 +81,19 @@ class SettingsActivity : AppCompatActivity() {
         }
 
     }
+    override fun onStart() {
+        super.onStart()
+        // Get the current user
+        val currentUser = userViewModel.getCurrentUser()
 
+        // Populate the fields with the current user's information
+        edtFullName.setText(currentUser.name)
+        edtEmail.setText(currentUser.email)
+        edtUsername.setText(currentUser.username)
+        edtPassword.setText(currentUser.password)
+        edtMinGoal.setText(currentUser.minGoal)
+        edtMaxGoal.setText(currentUser.maxGoal)
+    }
 
     private fun editUser() {
         val fullName = edtFullName.text.toString()
